@@ -1,0 +1,42 @@
+{
+  "name": "gemini-grounding",
+  "version": "1.0.0",
+  "description": "MCP server that utilizes Google Gemini Grounding for real-time information access",
+  "main": "build/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
+    "start": "node build/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "build"
+  ],
+  "bin": {
+    "gemini-grounding": "./build/index.js"
+  },
+  "keywords": ["mcp", "gemini", "grounding", "search", "claude"],
+  "author": "Emmanuel Pilande",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epilande/gemini-grounding.git"
+  },
+  "homepage": "https://github.com/epilande/gemini-grounding#readme",
+  "bugs": {
+    "url": "https://github.com/epilande/gemini-grounding/issues"
+  },
+  "packageManager": "pnpm@9.15.3+sha512.1f79bc245a66eb0b07c5d4d83131240774642caaa86ef7d0434ab47c0d16f66b04e21e0c086eb61e62c77efc4d7f7ec071afad3796af64892fae66509173893a",
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.15.1",
+    "dotenv": "^17.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.14",
+    "tsx": "^4.0.0",
+    "typescript": "^5.8.3"
+  }
+}
