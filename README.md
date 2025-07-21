@@ -25,27 +25,20 @@ This MCP server bypasses these limitations by leveraging Gemini's grounding capa
 ### Prerequisites
 
 - **Node.js 18+**
-- **pnpm** (or npm/yarn)
 - **Google Gemini API key** from [Google AI Studio](https://ai.google.dev/)
 
-### Install Dependencies
+### Option 1: Use with npx
+
+```bash
+npx gemini-grounding
+```
+
+### Option 2: Build from Source
 
 ```bash
 git clone https://github.com/epilande/gemini-grounding.git
 cd gemini-grounding
 pnpm install
-```
-
-### Setup Environment
-
-```bash
-cp .env.example .env
-# Edit .env and add your GEMINI_API_KEY
-```
-
-### Build
-
-```bash
 pnpm build
 ```
 
@@ -65,7 +58,7 @@ This server works with any MCP-compatible client.
 Add this server to your Claude Code MCP configuration using the `claude mcp add` command:
 
 ```bash
-claude mcp add -e GEMINI_API_KEY="${GEMINI_API_KEY}" gemini-grounding -- node /absolute/path/to/gemini-grounding/build/index.js
+claude mcp add gemini-grounding -e GEMINI_API_KEY="${GEMINI_API_KEY}" -- npx -y gemini-grounding
 ```
 
 Or manually add to your configuration:
@@ -74,8 +67,8 @@ Or manually add to your configuration:
 {
   "mcpServers": {
     "gemini-grounding": {
-      "command": "node",
-      "args": ["/absolute/path/to/gemini-grounding/build/index.js"],
+      "command": "npx",
+      "args": ["-y", "gemini-grounding"],
       "env": {
         "GEMINI_API_KEY": "${GEMINI_API_KEY}"
       }
